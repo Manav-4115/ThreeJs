@@ -1,5 +1,7 @@
 import React from "react";
 import { useControls } from "leva";
+import FanAnimation from "./FanAnimation";
+import { OrbitControls } from "@react-three/drei";
 const Experienced = () => {
     const {x,y,z}=useControls("BoxPosition",{
         x:{value:0,min:-3,max:3,step:0.01, label:"X Position"},
@@ -9,10 +11,9 @@ const Experienced = () => {
     })
   return (
     <>
-      <mesh position={[x, y, z]}>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshBasicMaterial color={"red"} />
-      </mesh>
+      <FanAnimation/>
+      <ambientLight intensity={1.5} color={'white'} />
+      <OrbitControls/>
     </>
   );
 };
